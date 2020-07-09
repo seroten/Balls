@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 
 public class MainCircles extends JFrame{
     private static final int POS_X = 200;
@@ -18,6 +19,8 @@ public class MainCircles extends JFrame{
     private MainCircles() {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setBounds(POS_X, POS_Y, WINDOW_WIDTH, WINDOW_HEIGHT);
+        GameCanvas canvas = new GameCanvas(this);
+        add(canvas, BorderLayout.CENTER);
         setTitle("Circles");
         setVisible(true);
     }
