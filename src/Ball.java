@@ -7,12 +7,12 @@ public class Ball extends Sprite {
         (int) (Math.random() * 255)
     );
 
-    private float vX = (float)(200f + Math.random() * 200f);
+    private float vX = (float)(400f + Math.random() * 200f);
     private float vY = (float)(200f + Math.random() * 200f);
 
     public Ball() {
-        halfHeight = 20 + (float)(Math.random() * 50f);
-        halfWidth = halfHeight;
+        Height = 40 + (float)(Math.random() * 50f);
+        Width = Height;
     }
 
     @Override

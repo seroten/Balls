@@ -3,40 +3,39 @@ import java.awt.*;
 public class Sprite {
     protected float x;
     protected float y;
-    protected float halfWidth;
-    protected float halfHeight;
+    protected float Width;
+    protected float Height;
 
     protected float getLeft() {
-        return x - halfWidth;
-    }
+    return x;
+}
     protected void setLeft(float left) {
-        x = left + halfWidth;
+        x = left;
     }
     protected float getRight() {
-        return x + halfWidth;
+        return x + Width;
     }
     protected void setRight(float right) {
-        x = right - halfWidth;
+        x = right - Width;
     }
     protected float getTop() {
-        return y - halfHeight;
+        return y;
     }
     protected void setTop(float top) {
-        y = top + halfHeight;
+        y = top;
     }
     protected  float getBottom() {
-        return y + halfHeight;
+        return y + Height;
     }
     protected void setBottom(float bottom) {
-        y = bottom - halfHeight;
+        y = bottom - Height;
     }
     protected float getWidth() {
-        return 2f * halfWidth;
+        return Width;
     }
     protected float getHeight() {
-        return 2f * halfHeight;
+        return Height;
     }
-
     void update(GameCanvas gameCanvas, float deltaTime) {}
     void render(GameCanvas gameCanvas, Graphics g) {}
 }
