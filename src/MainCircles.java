@@ -1,7 +1,12 @@
+import sun.applet.Main;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.util.Arrays;
 
-public class MainCircles extends JFrame{
+public class MainCircles extends JFrame implements MouseListener{
     private static final int POS_X = 200;
     private static final int POS_Y = 100;
     private static final int WINDOW_WIDTH = 800;
@@ -9,7 +14,6 @@ public class MainCircles extends JFrame{
 
     int count = 0;
     Background bg = new Background();
-
     Sprite[] sprites = new Sprite[10];
 
     public static void main(String[] args) {
@@ -27,7 +31,7 @@ public class MainCircles extends JFrame{
         initApplication();
         GameCanvas gameCanvas = new GameCanvas(this);
         add(gameCanvas, BorderLayout.CENTER);
-
+        gameCanvas.addMouseListener(this);
         setResizable(false);
         setTitle("Circles");
         setVisible(true);
@@ -45,17 +49,44 @@ public class MainCircles extends JFrame{
     public void update(GameCanvas gameCanvas, float deltaTime) {
         for (int i = 0; i < sprites.length; i++) {
             sprites[i].update(gameCanvas, deltaTime);
-            count++;
-            if(count == 10) {
-                bg.update();
-                count = 0;
-            }
         }
+        bg.update();
     }
     public void render(GameCanvas gameCanvas, Graphics g) {
         for (int i = 0; i < sprites.length; i++) {
-            gameCanvas.setBackground(bg.render());
             sprites[i].render(gameCanvas, g);
         }
+        gameCanvas.setBackground(bg.render());
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        if(SwingUtilities.isLeftMouseButton(e)) {
+            sprites = Arrays.copyOf(sprites, sprites.length + 1);
+            sprites[sprites.length - 1] = new Ball();
+        }else if(SwingUtilities.isRightMouseButton(e)) {
+            sprites = Arrays.copyOf(sprites, sprites.length - 1);
+        }
+        System.out.println(sprites.length);
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+
     }
 }
