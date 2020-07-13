@@ -1,11 +1,13 @@
+package common;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class GameCanvas extends JPanel {
-    MainCircles gameController;
+    CanvasListener gameController;
     long lastFrameTime;
 
-    public GameCanvas(MainCircles gameController) {
+    public GameCanvas(CanvasListener gameController) {
         this.gameController = gameController;
         lastFrameTime = System.nanoTime();
     }

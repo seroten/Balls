@@ -1,6 +1,8 @@
+package common;
+
 import java.awt.*;
 
-public class Sprite {
+public class Sprite implements GameObject{
     protected float x;
     protected float y;
     protected float Width;
@@ -36,6 +38,8 @@ public class Sprite {
     protected float getHeight() {
         return Height;
     }
-    void update(GameCanvas gameCanvas, float deltaTime) {}
-    void render(GameCanvas gameCanvas, Graphics g) {}
+    @Override
+    public void update(GameCanvas gameCanvas, float deltaTime) {}
+    @Override
+    public void render(GameCanvas gameCanvas, Graphics g) {}
 }
